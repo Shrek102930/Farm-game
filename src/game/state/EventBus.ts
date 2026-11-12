@@ -1,0 +1,2 @@
+type Handler<T>=((payload:T)=>void);
+export class EventBus<Events extends object>{private map=new Map<keyof Events,Set<Handler<any>>>();on<K extends keyof Events>(name:K,handler:Handler<Events[K]>){const set=this.map.get(name)||new Set();set.add(handler);this.map.set(name,set);return()=>set.delete(handler)}emit<K extends keyof Events>(name:K,payload:Events[K]){this.map.get(name)?.forEach(fn=>fn(payload))}clear(){this.map.clear()}}

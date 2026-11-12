@@ -1,0 +1,1 @@
+export class InputController{private touch={x:0,y:0};private keys={x:0,y:0};setTouch(x:number,y:number){this.touch={x,y}}setKeys(x:number,y:number){this.keys={x,y}}vector(){const x=this.touch.x+this.keys.x,y=this.touch.y+this.keys.y,m=Math.hypot(x,y);return m>1?{x:x/m,y:y/m}:{x,y}}reset(){this.touch={x:0,y:0};this.keys={x:0,y:0}}}

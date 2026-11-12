@@ -1,0 +1,1 @@
+import React,{useEffect,useRef}from'react';import{createGame}from'../game/createGame';import{GameUI}from'./GameUI';export default function App(){const root=useRef<HTMLDivElement>(null);useEffect(()=>{if(!root.current)return;const game=createGame(root.current);return()=>game.destroy(true)},[]);return <main className="game"><div className="canvas" ref={root}/><GameUI/></main>}

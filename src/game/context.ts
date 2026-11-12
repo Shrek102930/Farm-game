@@ -1,0 +1,2 @@
+import type{GameEvents,Tool}from'./state/types';import{EventBus}from'./state/EventBus';import{GameState}from'./state/GameState';import{InputController}from'./systems/InputController';
+export const gameBus=new EventBus<GameEvents>();export const gameState=new GameState();export const inputController=new InputController();export const gameCommands:{setTool:(t:Tool)=>void;act:()=>void;sleep:()=>void}={setTool:()=>{},act:()=>{},sleep:()=>{}};

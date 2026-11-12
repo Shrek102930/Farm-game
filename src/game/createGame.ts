@@ -1,0 +1,1 @@
+import Phaser from'phaser';import{FarmScene}from'./scenes/FarmScene';export function createGame(parent:HTMLElement){return new Phaser.Game({type:Phaser.AUTO,parent,backgroundColor:'#74b75f',scale:{mode:Phaser.Scale.RESIZE,width:'100%',height:'100%'},physics:{default:'arcade',arcade:{debug:false}},scene:[FarmScene]})}
