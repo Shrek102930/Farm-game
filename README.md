@@ -1,49 +1,29 @@
-# 云朵谷 v0.4 结构化重制版
+# 云朵谷 v0.6.1：点击移动版
 
-本版根据开源游戏架构与移动端 UI 研究，对 v0.3 进行了结构重构。
+## 已实现
 
-## 改进
+- 商店购买云萝卜种子
+- 种子库存，播种消耗种子而非直接扣金币
+- 收获进入背包
+- 木材进入背包
+- 出货箱放入与撤回
+- 睡觉时统一结算出货收入
+- 背包、商店、出货箱、设置面板
+- 本地存档：日期、金币、农田、树木、库存、出货、玩家位置、工具和设置
+- 刷新网页后恢复进度
+- 静音/音乐音量设置及删除存档
+- 完整经济循环自动化测试
 
-- React UI、Phaser 场景、状态、输入、交互分离
-- EventBus 事件通信，不再定时轮询 Phaser
-- 明确的 TypeScript 农田、作物、树木和 HUD 类型
-- 最近目标选择与对象情境提示
-- 横竖屏独立重排、刘海与底部安全区适配
-- 竖屏5格、横屏5格工具栏（后续可扩充6格）
-- 事件式新手步骤与今日任务
-- 摇杆和键盘输入统一归一化
-- 金币不足、成长和最近目标的逻辑测试
-- 2.5分钟游戏日及快速睡觉测试
+## 游戏循环
 
-## 结构
+点击地图地面移动角色 → 商店买种子 → 点击走到土地旁 → 锄地 → 播种 → 浇水 → 睡觉成长 → 收获进背包 → 放入出货箱 → 睡觉结算。
 
-```text
-src/app                 React UI 和摇杆
-src/game/scenes         Phaser 场景
-src/game/systems        输入与交互系统
-src/game/state          数据状态与事件总线
-src/tests               核心逻辑测试
-```
+## 部署
 
-## 运行
-
-```bash
-npm install
-npm test
-npm run dev
-```
-
-## 构建
-
-```bash
-npm run build
-```
-
-Render：
-
-- Build Command：`npm install && npm run build`
-- Publish Directory：`dist`
+Render Static Site：
+- Build Command: `npm install && npm run build`
+- Publish Directory: `dist`
 
 ## 当前边界
 
-仍是单机原型。下一阶段为 Tiled Tilemap、正式原创素材、碰撞图层、背包系统和 WebSocket 双人联机。
+本版本将操作方式改为点击地图移动，不再使用虚拟摇杆；仍是可保存的单机网页垂直切片。Steam 商业发行仍需要正式美术、Tilemap、音频、内容量、桌面封装、控制器、完整 QA 和 Steamworks。

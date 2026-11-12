@@ -1,0 +1,1 @@
+import type{ItemId}from'../state/types';export const ITEM_DEFS:Record<ItemId,{name:string;icon:string;buyPrice:number|null;sellPrice:number}>={carrot_seed:{name:'云萝卜种子',icon:'🌱',buyPrice:5,sellPrice:1},carrot:{name:'云萝卜',icon:'🥕',buyPrice:null,sellPrice:15},wood:{name:'木材',icon:'🪵',buyPrice:null,sellPrice:5}};

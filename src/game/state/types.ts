@@ -1,7 +1,14 @@
 export type Tool='hand'|'hoe'|'seed'|'water'|'axe';
 export type CropStage='none'|'seeded'|'sprout'|'mature';
+export type ItemId='carrot_seed'|'carrot'|'wood';
+export type Inventory=Record<ItemId,number>;
 export type PlotState={id:string;x:number;y:number;tilled:boolean;watered:boolean;crop:CropStage};
 export type TreeState={id:string;x:number;y:number;hp:number};
 export type Prompt={label:string;enabled:boolean;targetId?:string};
-export type HudState={day:number;clock:string;coins:number;prompt:Prompt;message:string;quest:string;questDone:number;questTotal:number};
-export type GameEvents={hud:HudState;toast:string;tutorial:{step:number;text:string};ready:true};
+export type SettingsState={muted:boolean;musicVolume:number;sfxVolume:number;showTutorial:boolean};
+export type PlayerState={x:number;y:number;selectedTool:Tool};
+export type ShippingEntry={itemId:ItemId;quantity:number};
+export type DaySummary={completedDay:number;revenue:number;shipped:ShippingEntry[]};
+export type SaveDataV1={version:1;savedAt:string;day:number;coins:number;seconds:number;questDone:number;plots:PlotState[];trees:TreeState[];inventory:Inventory;shippingBin:ShippingEntry[];player:PlayerState;settings:SettingsState};
+export type HudState={day:number;clock:string;coins:number;prompt:Prompt;message:string;quest:string;questDone:number;questTotal:number;inventory:Inventory;shippingCount:number;saveStatus:string};
+export type GameEvents={hud:HudState;toast:string;tutorial:{step:number;text:string};ready:true;openPanel:'inventory'|'shop'|'shipping'|'settings';dayEnded:DaySummary};
